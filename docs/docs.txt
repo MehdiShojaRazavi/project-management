@@ -3,22 +3,28 @@
    1. Login
       1. Username, password login
    2. Register
-   3. Password forgot
-2. Make teams
+   3. reset password
+2. teams
    1. Create team
-   2. add user to team
-   3. Set name and description to team
+   2. invite to user to team
+   3. update team
    4. Remove user from team
-   5. Edit team detail
 3. User
-   1. Profile
+   1. Profile actions
+      1. get profile - edit profile
    2. Skills
-   3. Create project
-   4. Create team
-4. Skills
-   1. Create - edit - remove - get Title for skill
-5. Projects
-   1. Title - text - image - team - owner  - tags - category
+      1. add skill - edit skill
+   3. invite to team
+      1. accept - reject
+4. Projects
+   1. create project 
+      1. Title - text - image - team - owner  - tags - category
+   2. get all project
+   3. get project by id
+   4. get team Projects
+   5. get user Projects
+   6. update - edit project
+   7. remove
 
 Database:
 1. Users
