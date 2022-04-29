@@ -1,0 +1,47 @@
+﻿Documnet of Project management
+1. Authorization
+   1. Login
+      1. Username, password login
+   2. Register
+   3. Password forgot
+2. Make teams
+   1. Create team
+   2. add user to team
+   3. Set name and description to team
+   4. Remove user from team
+   5. Edit team detail
+3. User
+   1. Profile
+   2. Skills
+   3. Create project
+   4. Create team
+4. Skills
+   1. Create - edit - remove - get Title for skill
+5. Projects
+   1. Title - text - image - team - owner  - tags - category
+
+Database:
+1. Users
+   1. fname
+   2. lname
+   3. Username
+   4. phone - mobile
+   5. password
+   6. email
+   7. Skills : []
+   8. team : []
+   9. role : [user, admin, teamleader, ]
+2. project
+   1. Title
+   2. text
+   3. image
+   4. tags : []
+   5. owner : user
+   6. team : TeamId
+   7. private : boolean
+   8. show : boolean
+3. team
+   1. Title
+   2. text
+   3. Users
+   4. Projects
