@@ -39,9 +39,9 @@ Database:
    5. owner : user
    6. team : TeamId
    7. private : boolean
-   8. show : boolean
+
 3. team
-   1. Title
-   2. text
+   1. fname
+   2. description
    3. Users
    4. Projects
