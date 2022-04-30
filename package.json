@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/MehdiShojaRazavi/project-management#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.18.0",
+    "express-validator": "^6.14.0",
     "mongoose": "^6.3.1"
   }
 }

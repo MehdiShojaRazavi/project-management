@@ -6,9 +6,16 @@ module.exports = class Application {
   constructor(PORT, DB_URL){
     this.configDatabase(DB_URL)
     this.configApplication()
-    this.createServer(PORT)
     this.createRoutes()
+    this.createServer(PORT)
     this.errorHandler()
+  }
+  configDatabase(DB_URL){
+    const mongoose = require('mongoose');
+    mongoose.connect(DB_URL, (error) => {
+      if(error) throw error
+      return console.log('connect to DB successfull...')
+    })
   }
   configApplication(){
     const path = require('path')
@@ -23,19 +30,20 @@ module.exports = class Application {
       console.log(`Server run On http://localhost:${PORT}`)
     })
   }
-  configDatabase(DB_URL){
-    const mongoose = require('mongoose');
-    mongoose.connect(DB_URL, (error) => {
-      if(error) throw error
-      return console.log('connect to DB successfull...')
+  createRoutes(){
+    this.#app.get('/', (req, res, next) => {
+      return res.json({
+        message : 'this is a new Exprerss application'
+      })
     })
+    this.#app.use(AllRoutes)
   }
   errorHandler(){
     this.#app.use((req, res, next) => {
       return res.status(404).json({
         status : 404,
         success : false,
-        message : 'not found page or url'
+        message : 'Routes not found'
       })
     })
     this.#app.use((error, req, res, next) => {
@@ -47,13 +55,5 @@ module.exports = class Application {
         message
       })
     })
-  }
-  createRoutes(){
-    this.#app.get('/', (req, res, next) => {
-      return res.json({
-        message : 'this is a new Eprerss application'
-      })
-    })
-    this.#app.use(AllRoutes)
   }
 }
