@@ -2,6 +2,7 @@
 1. Authorization
    1. Login
       1. Username, password login
+      2. return jwt token
    2. Register
       1. username, email, mobile, password
       2. validation
