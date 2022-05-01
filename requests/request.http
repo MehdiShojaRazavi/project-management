@@ -10,3 +10,16 @@ Content-Type: application/json
   "password" : "123499999",
   "confirm_password" : "123499999"
 }
+
+
+
+### login request
+
+post http://localhost:3000/auth/login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzM5NzIwLCJleHAiOjE2ODI4NzU3MjB9.2JQolJY0uihGv98sBAR6x1X73qUBpKljgkwfAGv_iSw
+
+{
+   "username" : "kaveh",
+   "password" : "123456"
+}

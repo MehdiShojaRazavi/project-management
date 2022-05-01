@@ -3,6 +3,9 @@
    1. Login
       1. Username, password login
    2. Register
+      1. username, email, mobile, password
+      2. validation
+      3. unique
    3. reset password
 2. teams
    1. Create team

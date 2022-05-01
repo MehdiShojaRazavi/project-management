@@ -35,6 +35,20 @@ function registerValidator(){
     })
   ]
 }
+function loginValidator(){
+  return [
+    body("username").notEmpty().withMessage('username should not be blank')
+    .custom(value => {
+      const usernameRegex = /^[a-z]+[a-z0-9\_\.]{2,}/gi
+      if (usernameRegex.test(value)){
+        return true
+      }
+      throw 'username is incorrect'
+    }),
+    body("password").isLength({min : 6, max : 16}).withMessage('password must be between 6 and 16 character')
+  ]
+}
 module.exports = {
-  registerValidator
+  registerValidator,
+  loginValidator
 }
