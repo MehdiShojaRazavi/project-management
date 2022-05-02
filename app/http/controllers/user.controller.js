@@ -25,7 +25,6 @@ class UserController{
           if (badValues[i] == value) delete data[key]
         }
       })
-      console.log('data', data)
       const result = await UserModel.updateOne({_id : userId}, {$set : data})
       if (result.modifiedCount > 0){
         return res.status(200).json({
@@ -36,6 +35,21 @@ class UserController{
       }
       throw {status : 400, message : 'update failed'}
     } catch (error){
+      next(error)
+    }
+  }
+  async uploadProfileImage(req, res, next){
+    try{
+      const user_ID = req.user._id;
+      const filePath = req.file?.path.replace('\\\\', '/').substring(7);
+      const result = await UserModel.updateOne({_id : user_ID}, {$set : {profile_image : filePath}})
+      if (result.modifiedCount == 0) throw {status : 400, success : false, message : 'update failed'}
+      return res.status(200).json({
+        status : 200,
+        success : true,
+        message : 'update completed successfully'
+    })
+    } catch(error){
       next(error)
     }
   }

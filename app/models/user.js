@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
   mobile : {type : String, required : true, unique : true},
   email : {type : String, required : true, unique : true},
   password : {type : String, required : true},
+  profile_image : {type : String, required : false},
   rolls : {type : [String], default : ['USER']},
   skills : {type : [String], default : []},
   teams : {type : [mongoose.Types.ObjectId], default : []},
