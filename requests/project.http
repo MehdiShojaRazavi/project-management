@@ -11,3 +11,9 @@ Content-Type: application/json
     "tag1", "tag2", "tag3"
   ]
 }
+
+### cget all project
+
+post http://localhost:3000/project/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
