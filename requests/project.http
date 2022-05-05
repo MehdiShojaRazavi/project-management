@@ -6,5 +6,8 @@ Content-Type: application/json
 
 {
   "title" : "title of new project",
-  "text" : "text of new project for project manager with nodejs"
+  "text" : "text of new project for project manager with nodejs",
+  "tags" : [
+    "tag1", "tag2", "tag3"
+  ]
 }
