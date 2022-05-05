@@ -2,9 +2,15 @@ const router = require('express').Router();
 const { ProjectController } = require('../http/controllers/project.controller');
 const { expressValidationMapper } = require('../http/middlewares/checkError');
 const { checkLogin } = require('../http/middlewares/autoLogin');
-const { createProjectValidator } = require('../http/validations/project')
+const { createProjectValidator } = require('../http/validations/project');
+const { mongoIdValidator } = require('../http/validations/publi');
+
 router.post("/create", checkLogin, createProjectValidator(), expressValidationMapper, ProjectController.createProject)
-router.post("/all", checkLogin, expressValidationMapper, ProjectController.getAllProject)
+router.get("/list", checkLogin, ProjectController.getAllProject)
+router.get("/:id", checkLogin, mongoIdValidator(), expressValidationMapper, ProjectController.getProjectById)
+router.delete("/remove/:id", checkLogin, mongoIdValidator(), expressValidationMapper, ProjectController.removeProject)
+router.post("/edit/:id", mongoIdValidator(), expressValidationMapper, checkLogin, ProjectController.updateProject)
+
 module.exports = {
   projectRoutes : router
 }
