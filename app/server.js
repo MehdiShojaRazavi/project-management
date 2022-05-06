@@ -47,6 +47,7 @@ module.exports = class Application {
       })
     })
     this.#app.use((error, req, res, next) => {
+      console.log(error)
       const status = error?.status || 500;
       const message = error?.message || 'InternalServerError';
       return res.status(status).json({

@@ -8,7 +8,6 @@ class ProjectController{
   async createProject(req, res, next){
     try{
       const {title, text, tags} = req.body;
-      console.log(tags)
       const owner = req.user._id;
       const result = await ProjectModel.create({title, text, owner, tags})
       if (!result) throw {status: 400, success: false, message: 'Failed to add project'}
@@ -56,7 +55,6 @@ class ProjectController{
   }
   async removeProject(req, res, next){
     try{
-      console.log('removeProject is running')
       const owner = req.user._id;
       const projectId = req.params.id;
       await this._findProject(owner, projectId);
@@ -68,7 +66,33 @@ class ProjectController{
         message : 'delete project successfull'
       })
     } catch (error){
-      console.log(error)
+      next(error)
+    }
+  }
+  async updateProject(req, res, next){
+    try{
+      const owner = req.user._id;
+      const projectID = req.params.id;
+      await this._findProject(owner, projectID);
+      const data = {...req.body}
+      Object.entries(data).forEach(([key, value]) => {
+        if (!["title", "text", "tags"].includes(key)) delete data[key];
+        if (["", " ", null, 0, -1, undefined, NaN, false].includes(value)) delete data[key];
+        if (key === "tags" && data['tags'].constructor === Array){
+          data['tags'] = data['tags'].filter(v => {
+            if (!["", " ", null, 0, -1, undefined, NaN, false].includes(v)) return v
+          })
+          if(data['tags'].length === 0) delete data['tags'];
+        }
+      })
+      const updateResult = await ProjectModel.updateOne({_id : projectID}, {$set : data})
+      if (updateResult.modifiedCount == 0) throw {status : 400, success : false, message : 'Error on updating data'};
+      return res.status(200).json({
+        status : 200,
+        success : true,
+        message : 'update project successfull'
+      })
+    } catch (error){
       next(error)
     }
   }
@@ -76,9 +100,6 @@ class ProjectController{
 
   }
   getProjectOfUser(){
-
-  }
-  updateProject(){
 
   }
 }

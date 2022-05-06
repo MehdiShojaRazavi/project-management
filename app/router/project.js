@@ -9,7 +9,7 @@ router.post("/create", checkLogin, createProjectValidator(), expressValidationMa
 router.get("/list", checkLogin, ProjectController.getAllProject)
 router.get("/:id", checkLogin, mongoIdValidator(), expressValidationMapper, ProjectController.getProjectById)
 router.delete("/remove/:id", checkLogin, mongoIdValidator(), expressValidationMapper, ProjectController.removeProject)
-router.post("/edit/:id", mongoIdValidator(), expressValidationMapper, checkLogin, ProjectController.updateProject)
+router.put("/edit/:id", mongoIdValidator(), expressValidationMapper, checkLogin, ProjectController.updateProject)
 
 module.exports = {
   projectRoutes : router
