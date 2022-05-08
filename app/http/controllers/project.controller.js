@@ -7,9 +7,9 @@ class ProjectController{
   }
   async createProject(req, res, next){
     try{
-      const {title, text, tags} = req.body;
+      const {title, text, tags, image} = req.body;
       const owner = req.user._id;
-      const result = await ProjectModel.create({title, text, owner, tags})
+      const result = await ProjectModel.create({title, text, owner, tags, image})
       if (!result) throw {status: 400, success: false, message: 'Failed to add project'}
       return res.status(201).json({
         status : 201,
