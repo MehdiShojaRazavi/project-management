@@ -96,6 +96,26 @@ class ProjectController{
       next(error)
     }
   }
+  async updateImageProject(req, res, next){
+    try{
+      console.log('updateImageProject')
+      const {image} = req.body;
+      const owner = req.user._id;
+      const projectID = req.params.id;
+      await this._findProject(projectID, owner);
+      const updateResult = await ProjectModel.updateOne({_id : projectID}, {$set : {image}});
+      if (updateResult.modifiedCount == 0) throw {status: 400, message: 'Error on updating image'};
+      return res.status(200).json({
+        status: 200,
+        success: true,
+        message: 'update project successfull'
+      })
+    }catch(error){
+      next(error)
+    }
+  }
+
+
   getAllProjectOfTeam(){
 
   }

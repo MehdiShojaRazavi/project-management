@@ -3,6 +3,7 @@ const { verifyJwtToken } = require("../../modules/functions");
 
 const checkLogin = async (req, res, next) => {
   try{
+    console.log('checkLogin')
     const AUTH_ERROR = {status : 402, message : 'Please log in to your account'}
     const authorization = req?.headers?.authorization;
     if (!authorization) throw AUTH_ERROR

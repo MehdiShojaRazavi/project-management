@@ -34,10 +34,7 @@ Content-Type: application/json
 
 {
   "title" : "new title for test",
-  "text" : "new tet for test updating project",
-  "tags" : [
-    "tag1", " ", "", 0
-  ],
+  "text" : "new text for test updating project",
   "text2" : "dddd"
 }
 
