@@ -1,0 +1,38 @@
+### create team
+
+post http://localhost:3000/team/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
+
+{
+  "fname" : "title of new team",
+  "description" : "text of new team for team manager with nodejs",
+  "username" : "mmmmmmmm"
+}
+
+### get all team
+Get http://localhost:3000/team/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
+
+### get team by ID
+Get http://localhost:3000/team/6272a7fb773dd4e5f751333e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
+
+### remove team by ID
+Delete http://localhost:3000/team/remove/6272a731095a4da7b696ff26
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
+
+### edit team by ID
+Put http://localhost:3000/team/edit/6272a7fb773dd4e5f751333e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthdmVoIiwiaWF0IjoxNjUxMzQyNTIxLCJleHAiOjE2ODI4Nzg1MjF9.VOSDYmsErnqGXsAQ3s5q_W87oOoYp_QxnzUXTU18iLw
+Content-Type: application/json
+
+{
+  "title" : "new title for test",
+  "text" : "new text for test updating team",
+  "text2" : "dddd"
+}
+
